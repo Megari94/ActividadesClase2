@@ -1244,4 +1244,33 @@ go(unlocked(S.screen)||S.screen==='inicio'?S.screen:'inicio');
 })();
 </script>
 
+
+<script>
+/* Oculta únicamente la insignia de atribución inyectada por Netlify. */
+(function hideNetlifyAttribution(){
+  const observed=new WeakSet();
+  const label=element=>(element.getAttribute('aria-label')||element.textContent||'').replace(/\s+/g,' ').trim();
+  const isBadge=element=>/^powered by netlify$/i.test(label(element));
+  function inspect(root){
+    root.querySelectorAll('a,button,div,span,[role="link"],netlify-badge').forEach(element=>{
+      if(!isBadge(element))return;
+      let badge=element;
+      while(badge.parentElement&&isBadge(badge.parentElement))badge=badge.parentElement;
+      badge.style.setProperty('display','none','important');
+      badge.setAttribute('aria-hidden','true');
+    });
+    root.querySelectorAll('*').forEach(element=>{
+      if(element.shadowRoot)watch(element.shadowRoot);
+    });
+  }
+  function watch(root){
+    if(observed.has(root))return;
+    observed.add(root);
+    inspect(root);
+    new MutationObserver(()=>inspect(root)).observe(root,{childList:true,subtree:true,characterData:true});
+  }
+  watch(document.body);
+})();
+</script>
+
 </body></html>
