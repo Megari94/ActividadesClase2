@@ -1,6 +1,6 @@
 # Misión Docente
 
-Sala de juegos para trabajar en equipo sobre el uso de IA en la enseñanza. La aplicación está en `Rescata-la-clase.html` y funciona sin compilación ni dependencias de JavaScript.
+Sala de juegos para trabajar en equipo sobre el uso de IA en la enseñanza. La aplicación está en `index.html` y funciona sin compilación ni dependencias de JavaScript.
 
 ## Recorridos
 
@@ -20,7 +20,7 @@ Las once insignias reconocen etapas completadas, sin calificar las respuestas. E
 python3 -m http.server 8000
 ```
 
-Abrir la ruta `/Rescata-la-clase.html` en ese servidor. Las fuentes de Google son opcionales: hay fuentes alternativas y las ilustraciones están incluidas en la aplicación.
+Abrir la raíz `/` o la ruta `/index.html` en ese servidor. Las fuentes de Google son opcionales: hay fuentes alternativas y las ilustraciones están incluidas en la aplicación.
 
 ## Revisión funcional
 
